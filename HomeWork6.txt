@@ -1,0 +1,24 @@
+function checkProbabilityTheory(count) {
+    count = (count === undefined || isNaN(count) || count < 0) ? Math.floor(Math.random() * 10) + 1 : count;
+    let numbers = [];
+    let evenCount = 0;
+    for (let i = 0; i < count; i++) {
+        let number = Math.floor(Math.random() * (1001 - 100)) + 100;
+        numbers.push(number);
+        evenCount += number % 2 === 0;
+    }
+    let oddCount = count - evenCount;
+    let evenPercentage = (evenCount / count) * 100;
+    let oddPercentage = (oddCount / count) * 100;
+    let isCloseToFiftyFifty = Math.abs(evenPercentage - 50) <= 10;
+
+    console.log("Generated " + count + " numbers:", numbers);
+    console.log("Even numbers: " + evenCount + " (" + evenPercentage.toFixed(2) + "%)");
+    console.log("Odd numbers: " + oddCount + " (" + oddPercentage.toFixed(2) + "%)");
+    console.log("Close to 50%/50%? " + isCloseToFiftyFifty);
+
+    return { numbers, evenCount, oddCount, evenPercentage, oddPercentage, isCloseToFiftyFifty };
+}
+
+
+checkProbabilityTheory();
