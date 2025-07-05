@@ -1,0 +1,53 @@
+var services = {
+    "стрижка": "60 грн",
+    "гоління": "80 грн",
+    "Миття голови": "100 грн"
+};
+services['Розбити скло'] = "200 грн";
+
+
+
+function price(services) {
+    var suma = 0;
+
+    for (var prop in services) {
+        var price = parseInt(services[prop]);
+        suma = suma + price;
+    }
+    return suma
+}
+console.log(price(services))
+
+function minPrice(services) {
+    var number = 0;
+
+    for (var prop in services) {
+        var price = parseInt(services[prop]);
+
+        if (number === 0) {
+            number = price;
+
+        } else if (price < number) {
+            number = price;
+        }
+    }
+    return number;
+}
+console.log(minPrice(services));
+
+function maxPrice(services) {
+    var number = 0;
+
+    for (var prop in services) {
+        var price = parseInt(services[prop]);
+
+        if (number === 0) {
+            number = price;
+
+        } else if (price > number) {
+            number = price;
+        }
+    }
+    return number;
+}
+console.log(maxPrice(services));
