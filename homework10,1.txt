@@ -1,0 +1,31 @@
+var arr = [
+    {
+        userName: "Test",
+        lastName: "Test",
+        email: "test.test@gmail.com"
+    },
+    {
+        userName: "Dmitro",
+        lastName: "Porohov",
+        email: "dmitro.porohov@yahoo.com"
+    },
+    {
+        userName: "Andrii",
+        lastName: "",
+        email: "andrii@mail.ru"
+    }
+];
+
+const regex = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)?@(gmail|yahoo)\.com$/;
+const isValidEmail = regex.test('user@gmail.com');
+const isValidEmail2 = regex.test('user@yahoo.com');
+console.log(isValidEmail);
+console.log(isValidEmail2);
+
+const validEmail = [];
+for (const user of arr) {
+    if (regex.test(user.email)){
+        validEmail.push(user.email);
+    }
+}
+console.log(validEmail);
